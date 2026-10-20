@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, Menu } from 'electron'
 import { join } from 'node:path'
 
 function createWindow() {
@@ -8,6 +8,7 @@ function createWindow() {
 		minWidth: 1100,
 		minHeight: 700,
 		show: false,
+		autoHideMenuBar: true,
 		backgroundColor: '#0b0714',
 		webPreferences: {
 		preload: join(__dirname, '../preload/index.mjs'),
@@ -26,6 +27,7 @@ function createWindow() {
 }
 
 app.whenReady().then(() => {
+	Menu.setApplicationMenu(null)
 	createWindow()
 	app.on('activate', () => {
 		if (BrowserWindow.getAllWindows().length === 0) createWindow()

@@ -1,7 +1,7 @@
+import { ScannerPage } from './pages/ScannerPage'
+
 const App = () => {
-	return (
-		<div>ahoj</div>
-	)
+	return <ScannerPage />
 }
 
 export default App
